@@ -1,0 +1,50 @@
+{
+    "actorSpecification": 1,
+    "name": "website-spell-checker",
+    "title": "Scrape single page in JavaScript",
+    "description": "Scrape data from single page with provided URL.",
+    "version": "0.0",
+    "meta": {
+        "templateId": "js-start"
+    },
+    "input": "./input_schema.json",
+    "dockerfile": "./Dockerfile",
+    "storages": {
+        "dataset": {
+            "actorSpecification": 1,
+            "views": {
+                "overview": {
+                    "title": "Overview",
+                    "transformation": {
+                        "unwind": ["jsonAnswer", "data"]
+                    },
+                    "display": {
+                        "component": "table",
+                        "properties": {
+                            "url": {
+                                "label": "URL",
+                                "format": "string"
+                            },
+                            "sentence_mistake": {
+                                "label": "Sentence Mistake",
+                                "format": "string"
+                            },
+                            "sentence_corrected": {
+                                "label": "Sentence Corrected",
+                                "format": "string"
+                            },
+                            "explanation": {
+                                "label": "Explanation",
+                                "format": "string"
+                            },
+                            "severity": {
+                                "label": "Severity",
+                                "format": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
