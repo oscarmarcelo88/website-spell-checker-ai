@@ -51,23 +51,23 @@ Here’s a sample spell check report in JSON format:
     "URL": "https://example.com/about",
     "sentence_mistake": "Our company is commited to excellence.",
     "sentence_corrected": "Our company is committed to excellence.",
-    "explanation": "The word 'commited' is misspelled; the correct spelling is 'committed'."
+    "explanation": "The word 'commited' is misspelled; the correct spelling is 'committed'.",
     "severity": "high"
   },
   {
     "URL": "https://example.com/contact",
     "sentence_mistake": "Feel free to reach out to us if you have any querries.",
     "sentence_corrected": "Feel free to reach out to us if you have any queries.",
-    "explanation": "The word 'querries' is misspelled; the correct spelling is 'queries'."
+    "explanation": "The word 'querries' is misspelled; the correct spelling is 'queries'.",
     "severity": "high"
   },
-   {
-	  "URL": "https://example.com/anouncement",
+  {
+    "URL": "https://example.com/anouncement",
     "sentence_mistake": "All in favour to our community and highlighting the amazing tools you create!",
     "sentence_corrected": "All in favor of our community and highlighting the amazing tools you create!",
     "explanation": "The phrase 'in favour to' is incorrect; it should be 'in favor of' to indicate support or approval.",
     "severity": "medium"
-          },
+  }
 ]
 ```
 

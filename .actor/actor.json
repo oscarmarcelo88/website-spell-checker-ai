@@ -1,8 +1,8 @@
 {
     "actorSpecification": 1,
-    "name": "website-spell-checker",
-    "title": "Scrape single page in JavaScript",
-    "description": "Scrape data from single page with provided URL.",
+    "name": "website-spell-checker-ai",
+    "title": "Website Spell Checker AI",
+    "description": "Review spelling and grammar of your entire website",
     "version": "0.0",
     "meta": {
         "templateId": "js-start"

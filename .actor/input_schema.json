@@ -1,5 +1,5 @@
 {
-    "title": "Scrape data from a web page",
+    "title": "Website Spell Checker",
     "type": "object",
     "schemaVersion": 1,
     "properties": {
@@ -11,7 +11,7 @@
             "editor": "textfield"
         },
         "openaiApiKey": {
-            "title": "OpenAI API key",
+            "title": "OpenAI API Key",
             "type": "string",
             "description": "The API key for accessing OpenAI. You can get it from <a href='https://platform.openai.com/account/api-keys' target='_blank' rel='noopener'>OpenAI platform</a>.",
             "editor": "textfield",
@@ -20,21 +20,21 @@
         "maxCrawlDepth": {
             "title": "Max Crawling Depth",
             "type": "integer",
-            "description": "Set the maximum level of pages to scan, starting from the initial URL. A depth of 0 checks only the start URLs, while higher values allow the actor to follow and scan links on subsequent pages, controlling how deep the scan goes into the website.",
+            "description": "Set the maximum level of pages to scan, starting from the initial URL. A depth of 0 checks only the start URLs, while higher values allow the actor to follow and scan links on subsequent pages, controlling how deep the scan goes into the website.\n\nIf set to `0`, there is no limit.",
             "minimum": 0,
             "default": 20
         },
         "maxCrawlPages": {
             "title": "Max Pages",
             "type": "integer",
-            "description": "Set the maximum number of pages to scan, including start URLs, paginated pages, and any other linked content. The scan will stop automatically once this limit is reached, helping to control the scope of the crawl.",
+            "description": "Set the maximum number of pages to scan, including start URLs, paginated pages, and any other linked content. The scan will stop automatically once this limit is reached, helping to control the scope of the crawl.\n\nIf set to `0`, there is no limit.",
             "minimum": 0,
             "default": 10
         },
         "severityLevel": {
         "title": "Only High Severity Mistakes",
         "type": "boolean",
-        "description": "Enable this option to filter the report and display only high-severity spelling and grammar mistakes, helping you focus on the most critical issues.",
+        "description": "Enable this option to find only high-severity spelling and grammar mistakes, helping you focus on the most critical issues.",
         "default": true,
         "groupCaption": "Options",
         "groupDescription": "Various options for this Actor"

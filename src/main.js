@@ -1,16 +1,33 @@
-import { Actor } from 'apify';
+import { Actor, log } from 'apify';
 
 await Actor.init();
 
 // Get input of your Actor.
-const { url } = await Actor.getInput();
-const { maxCrawlDepth } = await Actor.getInput();
-const { maxCrawlPages } = await Actor.getInput();
-const { openaiApiKey } = await Actor.getInput();
-const { severityLevel } = await Actor.getInput();
+const { url, maxCrawlDepth, maxCrawlPages, openaiApiKey, severityLevel } = await Actor.getInput();
 
-if (severityLevel){
-    var prompt = `
+const promptAllMistakes = `
+Perform a spelling and grammar check on the given website.
+
+The output should be a JSON array with these fields:
+- Sentence Mistake: The sentence with the mistake.
+- Sentence Corrected: The corrected version.
+- Explanation: A brief explanation.
+- URL: The webpage URL.
+- Severity: Categorize each mistake as 'low,' 'medium,' or 'high.'
+
+**Instructions:**
+- Include all entries with mistakes found on the website.
+- For each mistake, assign a severity level:
+  - 'Low' for minor issues with little impact on meaning.
+  - 'Medium' for moderate issues that affect clarity or professionalism.
+  - 'High' for critical errors that significantly impact meaning or understanding.
+- If there are multiple mistakes, create a separate entry for each.
+- Exclude sentences without mistakes or explanations like "No mistakes found."
+
+Focus on accurately categorizing each mistake by its impact on the content.
+`
+
+const promptHighSeverityMistakes = `
 Perform a spelling and grammar check on the given website.
 
 The output should be a JSON array with these fields:
@@ -29,32 +46,8 @@ The output should be a JSON array with these fields:
 
 Focus solely on errors that significantly affect understanding or convey incorrect information.
 `
-} else {
-var prompt = `
-Perform a spelling and grammar check on the given website.
 
-The output should be a JSON array with these fields:
-- Sentence Mistake: The sentence with the mistake.
-- Sentence Corrected: The corrected version.
-- Explanation: A brief explanation.
-- URL: The webpage URL.
-- Severity: Categorize each mistake as 'low,' 'medium,' or 'high.'
-
-**Instructions:**
-- Include all entries with mistakes found on the website.
-- For each mistake, assign a severity level: 
-  - 'Low' for minor issues with little impact on meaning.
-  - 'Medium' for moderate issues that affect clarity or professionalism.
-  - 'High' for critical errors that significantly impact meaning or understanding.
-- If there are multiple mistakes, create a separate entry for each.
-- Exclude sentences without mistakes or explanations like "No mistakes found."
-
-Focus on accurately categorizing each mistake by its impact on the content.
-
-`
-}
-
-console.log("Na mames ${prompt}" + prompt)
+log.debug('Actor is using prompt:', severityLevel ? promptHighSeverityMistakes : promptAllMistakes);
 
 try {
     new URL(url);
@@ -71,9 +64,8 @@ const newInput = {
     openaiApiKey: openaiApiKey,
     pageFormatInRequest: "HTML",
     topP: "0.9",
-    temperatue: "0.2",
-    // openaiApiKey: process.env.OPENAI_TOKEN_SPELLING_SCRAPER, //for testing
-    instructions: prompt,
+    temperature: "0.2",
+    instructions: severityLevel ? promptHighSeverityMistakes : promptAllMistakes,
     model: "gpt-4o-mini",
     schema: {
         "type": "object",
@@ -124,11 +116,7 @@ const newInput = {
     useStructureOutput: true,
 };
 
-console.log("ESto es: " + prompt)
-
-// Transform the Actor run to apify/web-scraper
-// with the new input.
-var result = await Actor.metamorph('drobnikj/extended-gpt-scraper', newInput);
-// The line here will never be reached, because the
-// Actor run will be interrupted.
+// Transform the Actor run to apify/web-scraper with the new input.
+await Actor.metamorph('drobnikj/extended-gpt-scraper', newInput);
+// The line here will never be reached, because the Actor run will be interrupted.
 await Actor.exit()
