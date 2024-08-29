@@ -1,8 +1,8 @@
 {
-    "name": "js-scrape-single-page",
+    "name": "website-spellchecker-ai",
     "version": "0.0.1",
     "type": "module",
-    "description": "This is an example of an Apify actor.",
+    "description": "Review spelling and grammar of your entire website",
     "engines": {
         "node": ">=18.0.0"
     },
@@ -15,6 +15,6 @@
         "start": "node ./src/main.js",
         "test": "echo \"Error: oops, the actor has no tests yet, sad!\" && exit 1"
     },
-    "author": "It's not you it's me",
+    "author": "Oscar Rodriguez",
     "license": "ISC"
 }
