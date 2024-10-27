@@ -1,6 +1,8 @@
 ## 🔍 What is Website Spell Checker?
 
-Website Spell Checker is a tool designed to **review the spelling and grammar of your entire website**. With the help of AI, this tool crawls through your website, identifies errors, and provides a detailed improvement report, ensuring your content is professional and error-free.
+Website Spell Checker is a tool designed to **review the spelling and grammar of your entire website**. Using AI, it crawls through your site, identifies errors, and provides a detailed improvement report to keep your content professional and error-free.
+
+You can **scale this tool to check hundreds or even thousands of pages**, and connect it through Apify’s API to integrate automatic spell-checking into your workflow.
 
 ## 🕵️‍♂️ What can you do with this Website Spell Checker?
 
@@ -14,30 +16,11 @@ Website Spell Checker is a tool designed to **review the spelling and grammar of
 
 📥 **Download reports** in multiple formats, including JSON, CSV, XML, Excel, or HTML table
 
-## 💸 Is this Webpage Spell Checker free?
+## 💸 Cost of using the Webpage Spell Checker
 
-You can try it for free with the $5 free usage credits every month on the [Apify Free plan](https://apify.com/pricing), allowing you to **run the Website Spell Checker within those limits**. The general cost of using this Actor is based on two factors:
+You can try the Webpage Spell Checker for free with Apify’s $5 monthly usage credit on the [Free plan](https://apify.com/pricing). The cost of using this actor depends on Apify platform usage alone. Typically, **it costs just a few dollars to check hundreds of pages.**
 
-1. **OpenAI API usage**: the number of API calls made to OpenAI for content analysis, based on OpenAI's current pricing structure.
-2. **Apify Platform usage**: cost of crawling your website, determined by the number of pages crawled and the Actor's runtime.
 
-For more extensive usage, consider getting an Apify subscription. We recommend our [$49/month Starter plan](https://apify.com/pricing) for regular website checks. For more detailed pricing information, please refer to [Apify Pricing](https://apify.com/pricing) and [OpenAI Pricing](https://www.notion.so/OpenAI-5e281c6e929a4b8a98a13bd02b0d1f01?pvs=21).
-
-## 🚀 How to use Website Spell Checker to do spell check in page
-
-It's easy to ensure your website is error-free with Website Spell Checker. Just follow these steps:
-
-1. Find [Website Spell Checker](https://apify.com/oscardz/website-spell-checker) on Apify Store and click the **Try for free** button.
-2. Input website URL to start with.
-3. Add your Open AI API key.
-4. Set any optional parameters like number of pages to scan, crawling depth or high-severity errors only option.
-5. Click “Start” button.
-6. Review the generated report to see all identified spelling and grammar issues.
-7. Export your error report in JSON, XML, CSV, Excel, or HTML or using an API.
-
-## ⬇️ Input
-
-To check your website for spelling and grammar errors, simply input the **website URL and add your Open AI API key**. You can input the data manually or programmatically via an API. For more details on how to configure input, see the [input tab](https://apify.com/oscardz/website-spell-checker/input-schema).
 
 ## ⬆️ Output sample
 
