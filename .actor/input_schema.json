@@ -10,20 +10,6 @@
             "prefill": "https://news.ycombinator.com/",
             "editor": "textfield"
         },
-        "openaiApiKey": {
-            "title": "OpenAI API Key",
-            "type": "string",
-            "description": "The API key for accessing OpenAI. You can get it from <a href='https://platform.openai.com/account/api-keys' target='_blank' rel='noopener'>OpenAI platform</a>.",
-            "editor": "textfield",
-            "isSecret": true
-        },
-        "maxCrawlDepth": {
-            "title": "Max Crawling Depth",
-            "type": "integer",
-            "description": "Set the maximum level of pages to scan, starting from the initial URL. A depth of 0 checks only the start URLs, while higher values allow the actor to follow and scan links on subsequent pages, controlling how deep the scan goes into the website.\n\nIf set to `0`, there is no limit.",
-            "minimum": 0,
-            "default": 20
-        },
         "maxCrawlPages": {
             "title": "Max Pages",
             "type": "integer",
@@ -40,5 +26,5 @@
         "groupDescription": "Various options for this Actor"
         }
     },
-    "required": ["url", "openaiApiKey"]
+    "required": ["url"]
 }

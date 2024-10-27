@@ -3,7 +3,7 @@ import { Actor, log } from 'apify';
 await Actor.init();
 
 // Get input of your Actor.
-const { url, maxCrawlDepth, maxCrawlPages, openaiApiKey, severityLevel } = await Actor.getInput();
+const { url, maxCrawlPages, severityLevel } = await Actor.getInput();
 
 const promptAllMistakes = `
 Perform a spelling and grammar check on the given website.
@@ -60,8 +60,9 @@ const newInput = {
     includeUrlGlobs: [{glob: url.replace(/\/$/, "")  + "/**"}], //Add the global url to crawl the website
     linkSelector: "a[href]",
     maxPagesPerCrawl: maxCrawlPages,
-    maxCrawlingDepth: maxCrawlDepth,
-    openaiApiKey: openaiApiKey,
+    maxCrawlingDepth: 20,
+    openaiApiKey: process.env.OPEN_AI_KEY,
+    //openaiApiKey: openaiApiKey,
     pageFormatInRequest: "HTML",
     topP: "0.9",
     temperature: "0.2",
